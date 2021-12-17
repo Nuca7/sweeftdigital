@@ -6,18 +6,21 @@ import { useInfiniteScroll } from "../context/infiniteScroll";
 function Home() {
   const { currentPage, setLoading } = useInfiniteScroll();
   const [users, setUsers] = useState([]);
+  const [usersTotalControl, setUsersTotalControl] = useState({ nextPage: 1 });
 
   async function fetchData() {
+    setLoading(true);
     const { list: tempUsers, pagination } = await getUsers(currentPage, 20);
-
-    const userTotal = pagination.current * pagination.pageSize;
-    if (userTotal > pagination.total) return;
-
     setUsers([...users, ...tempUsers]);
+    setUsersTotalControl({
+      ...usersTotalControl,
+      nextPage: pagination.nextPage,
+    });
     setLoading(false);
   }
 
   useEffect(() => {
+    if (!usersTotalControl.nextPage) return;
     fetchData();
   }, [currentPage]);
 

@@ -12,7 +12,6 @@ const InfiniteScrollContextProvider = ({ children }) => {
     const scrollHeight = document.body.scrollHeight;
     if (innerHeight + scrollY >= scrollHeight) {
       setCurrentPage(currentPage + 1);
-      setLoading(true);
     }
   }
 
