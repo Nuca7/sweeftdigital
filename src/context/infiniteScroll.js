@@ -26,6 +26,7 @@ const InfiniteScrollContextProvider = ({ children }) => {
         currentPage,
         setCurrentPage,
         infiniteScroll,
+        loading,
         setLoading,
       }}
     >

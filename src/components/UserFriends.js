@@ -4,7 +4,7 @@ import User from "./User";
 import { useInfiniteScroll } from "../context/infiniteScroll";
 
 function UserFriends({ Id, userFriends, setUserFriends }) {
-  const { currentPage, setLoading } = useInfiniteScroll();
+  const { currentPage, loading, setLoading } = useInfiniteScroll();
   const [userFriendsTotalControl, setUserFriendsTotalControl] = useState({
     nextPage: 1,
   });
@@ -36,6 +36,7 @@ function UserFriends({ Id, userFriends, setUserFriends }) {
         {userFriends.map((user) => {
           return <User key={user.id} {...user} />;
         })}
+        {loading && <h1>fetching more data</h1>}
       </div>
     </div>
   );

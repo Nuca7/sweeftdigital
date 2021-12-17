@@ -4,7 +4,7 @@ import { getUsers } from "../api";
 import { useInfiniteScroll } from "../context/infiniteScroll";
 
 function Home() {
-  const { currentPage, setLoading } = useInfiniteScroll();
+  const { currentPage, loading, setLoading } = useInfiniteScroll();
   const [users, setUsers] = useState([]);
   const [usersTotalControl, setUsersTotalControl] = useState({ nextPage: 1 });
 
@@ -33,6 +33,7 @@ function Home() {
       {users.map((user) => {
         return <User key={user.id} {...user} />;
       })}
+      {loading && <h1>fetching more data</h1>}
     </main>
   );
 }
