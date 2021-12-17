@@ -1,13 +1,87 @@
-body {
+/* reset */
+* {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+a {
+  text-decoration: none;
+  color: black;
+}
+/* general */
+img {
+  max-height: 100%;
+  max-width: 100%;
+}
+
+/* styling */
+main {
+  width: 1200px;
+  margin: 2rem auto;
+}
+.users {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(200px, 1fr));
+  justify-content: center;
+  gap: 20px;
+}
+.user {
+  display: inline-block;
+  border: solid 1px gray;
+}
+.user h3,
+.user p {
+  margin: 0.3rem;
+}
+
+.userDetailed {
+  width: 1200px;
+  margin: 2rem auto;
+  padding: 1.7rem 1rem;
+  border: solid 1px gray;
+}
+.details {
+  display: flex;
+  gap: 10px;
+}
+.details img {
+  width: 250px;
+}
+.info {
+  padding: 1rem;
+  position: relative;
+  border: solid 1.5px gray;
+  flex-grow: 2;
+}
+.title {
+  position: absolute;
+  top: -10px;
+  background: white;
+}
+.info .name {
+  margin-bottom: 1rem;
+}
+.info span,
+.address span {
+  text-decoration: underline;
+}
+
+.address {
+  padding: 1rem;
+  position: relative;
+  border: solid 1.5px gray;
+}
+.address h3 {
+  margin-bottom: 1rem;
+}
+
+.history {
+  margin: 4rem 0;
+}
+.history p {
+  display: inline-block;
+}
+.history span {
+  margin: 0 0.5rem;
 }
